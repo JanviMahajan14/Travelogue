@@ -10,6 +10,7 @@ const Navbar = () => {
         return (
             userState ?
                 <>
+                    <li><i class="material-icons">search</i></li>
                     <li><Link to="/explore">Explore</Link></li>
                     <li><Link to="/profile">Profile</Link></li>
                     <li><Link to="/newpost">Add Post</Link></li>

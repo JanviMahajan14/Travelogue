@@ -17,7 +17,7 @@ const Explore = () => {
             })
 
             const data = await res.json()
-            setPostData(data.reverse());
+            setPostData(data);
         }
         fetchData()
     }, [])

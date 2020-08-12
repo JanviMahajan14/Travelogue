@@ -28,7 +28,7 @@ router.post('/newpost', auth, async(req,res)=>{
 
 router.get('/post', auth, async(req,res)=>{
     try{
-        const post = await Post.find().populate("postedBy","_id Username").populate("comments.postedBy","_id Username");
+        const post = await Post.find().populate("postedBy","_id Username").populate("comments.postedBy","_id Username").sort('-createdAt');
         res.send(post);
     }
     catch (error) {

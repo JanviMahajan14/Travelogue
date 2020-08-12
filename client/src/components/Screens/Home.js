@@ -7,6 +7,16 @@ const Home = () => {
     const {userState, dispatch} = useContext(userContext)
     const [postdata, setPostData] = useState([]);
 
+    const compare_time = (a,b) => {
+        if (a.createdAt > b.createdAt) {
+            return -1;
+        } else if (a.createdAt < b.createdAt) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     useEffect(() => {
         async function fetchData() {
             const res = await fetch("http://localhost:5000/post/subscribed", {
@@ -17,7 +27,7 @@ const Home = () => {
             })
 
             const data = await res.json()
-            setPostData(data);
+            setPostData(data.sort(compare_time));
         }
         fetchData()
     }, [])
